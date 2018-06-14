@@ -1,7 +1,8 @@
 pipeline:
     build:
-        image: library/nginx
+        image: nginx
         script:
           - echo hello world
+          - env
         when:
            event: push
