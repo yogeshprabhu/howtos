@@ -1,6 +1,6 @@
 pipeline:
     build:
-        image: dockerfile/nginx
+        image: library/nginx
         script:
           - echo hello world
         when:
