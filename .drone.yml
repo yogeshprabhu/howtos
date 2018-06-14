@@ -1,8 +1,20 @@
 pipeline:
   build:
-    image: redis
+    image: appleboy/drone-ssh
+    pull: true
+    host: ${HOST}
+    user: ${USER}
+    #key: ${SSH_KEY}
+    password: ${PASS}
+    port: 22
+    command_timeout: 180
     commands:
       - env
-      - echo hello Yogesh
+    script:
+      - cd /root/cicd-demo/
+      - sudo docker stop flask_cont
+      - sudo docker rm flask_cont
+      - sudo docker build -t flask_image .
+      - sudo docker run -dti --name flask_cont -p 8001:8001 flask_image
     when:
       event: push
