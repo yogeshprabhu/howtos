@@ -3,3 +3,5 @@ pipeline:
         image: dockerfile/nginx
         script:
           - echo hello world
+	when:
+	  event: push
