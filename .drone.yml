@@ -1,8 +1,8 @@
 pipeline:
-    build:
-        image: nginx
-        script:
-          - echo hello world
-          - env
-        when:
-           event: push
+  build:
+    image: redis
+    commands:
+      - env
+      - echo hello Yogesh
+    when:
+      event: push
