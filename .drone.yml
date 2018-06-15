@@ -1,9 +1,4 @@
 pipeline:
-  frontend:
-    image: node:6
-    commands:
-      - npm install
-      - npm test
 
   backend:
     image: golang
@@ -12,7 +7,9 @@ pipeline:
       - go build
       - go test
 
-  notify:
-    image: plugins/slack
-    channel: developers
-    username: drone
+  frontend:
+    image: node:6
+    commands:
+      - npm install
+      - npm test
+
