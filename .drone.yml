@@ -8,7 +8,6 @@ pipeline:
   backend:
     image: golang
     commands:
-      - cd todo
       - go get
       - go build
       - go test
