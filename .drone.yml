@@ -1,4 +1,10 @@
 pipeline:
+  frontend:
+    image: node:6
+    commands:
+      - npm install
+      - npm test
+
   backend:
     image: golang
     commands:
@@ -6,12 +12,6 @@ pipeline:
       - go get
       - go build
       - go test
-
-  frontend:
-    image: node:6
-    commands:
-      - npm install
-      - npm test
 
   notify:
     image: plugins/slack
